@@ -1,0 +1,10 @@
+version: "3"
+services:
+  fibo:
+    build: .
+    volumes:
+      - "mavenrepo:/root/.m2"
+
+volumes:
+  mavenrepo:
+    driver: local

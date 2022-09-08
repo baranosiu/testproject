@@ -4,6 +4,7 @@ services:
     build: .
     volumes:
       - "mavenrepo:/root/.m2"
+      - "./out:/out"
 
 volumes:
   mavenrepo:

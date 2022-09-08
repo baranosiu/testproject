@@ -1,5 +1,6 @@
 package local.pbaranowski.fibo;
 
+import java.io.*;
 import java.math.BigInteger;
 import java.util.HashMap;
 
@@ -22,11 +23,18 @@ public class Fibo {
     }
 
     public static void main(String[] args) {
-        BigInteger n = BigInteger.ZERO;
-        BigInteger limit = BigInteger.valueOf(500);
-        while (n.compareTo(limit) <= 0) {
-            System.out.println("" + n + " -> " + fibo(n));
-            n = n.add(BigInteger.ONE);
+        try (PrintStream outputStream = new PrintStream(
+                new FileOutputStream("/out/wynik.txt"))) {
+            BigInteger n = BigInteger.ZERO;
+            final BigInteger limit = BigInteger.valueOf(500);
+            while (n.compareTo(limit) <= 0) {
+                System.out.println("" + n + " -> " + fibo(n));
+                outputStream.println("" + n + " -> " + fibo(n));
+                n = n.add(BigInteger.ONE);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
         }
+
     }
 }

@@ -1,4 +1,4 @@
 FROM maven:3-jdk-11-slim
 ADD ./inside_container /usr/src/maven
 WORKDIR /usr/src/maven
-CMD ["bash","-c","./run.sh"]
+CMD ["sh","-c","./run.sh"]

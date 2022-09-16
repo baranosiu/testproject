@@ -26,7 +26,7 @@ public class Fibo {
         try (PrintStream outputStream = new PrintStream(
                 new FileOutputStream("/out/wynik.txt"))) {
             BigInteger n = BigInteger.ZERO;
-            final BigInteger limit = BigInteger.valueOf(1000);
+            final BigInteger limit = BigInteger.valueOf(100);
             while (n.compareTo(limit) <= 0) {
                 System.out.println("" + n + " -> " + fibo(n));
                 outputStream.println("" + n + " -> " + fibo(n));
